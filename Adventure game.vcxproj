@@ -128,11 +128,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Adventure game.cpp" />
+    <ClCompile Include="source\GameManager.cpp" />
+    <ClCompile Include="source\Boss.cpp" />
+    <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\Charater.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\GameManager.h" />
+    <ClInclude Include="header\Boss.h" />
+    <ClInclude Include="header\Enemy.h" />
     <ClInclude Include="header\Charater.h" />
+    <ClInclude Include="header\GameState.h" />
     <ClInclude Include="header\Level.h" />
     <ClInclude Include="header\Player.h" />
   </ItemGroup>
