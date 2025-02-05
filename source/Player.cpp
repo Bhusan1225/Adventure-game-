@@ -1,11 +1,16 @@
+
 #include "../header/Player.h"
+
+
+
 Player::Player(string n)
     : Character(n, 100, 10, 5, 2), currentLevel(Level::LEVEL_1), hasSword(false), hasShield(false), hasArmour(false), hasBow(false) {
 }
 
 void Player::levelUp() 
 {
-    if (currentLevel == Level::LEVEL_6) {
+    if (currentLevel == Level::LEVEL_6) 
+    {
         cout << "You have reached the final level!" << endl;
         return;
     }
@@ -32,7 +37,8 @@ void Player::collectItem(string item)
     { 
         hasArmour = true; 
     }
-    else if (item == "Bow") {
+    else if (item == "Bow") 
+    {
         hasBow = true;
     }
     cout << "You obtained " << item << "!" << endl;
@@ -41,7 +47,11 @@ void Player::collectItem(string item)
 void Player::attack(Character& target) 
 {
     int damage = meleeDamage;
-    if (hasSword) damage += 5;
+    if (hasSword) 
+    {
+        damage += 5;
+    }
+
     cout << name << " attacks for " << damage << " damage!" << endl;
     target.takeDamage(damage);
 }
