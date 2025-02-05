@@ -1,8 +1,20 @@
 #include "../header/Charater.h"
 
-Character::Character(string n, int h, int md, int rd, int d)
-    : name(n), health(h), maxHealth(h), meleeDamage(md), rangedDamage(rd), defense(d)
-{}
+//Character::Character(string n, int h, int md, int rd, int d)
+//    : name(n), health(h), maxHealth(h), meleeDamage(md), rangedDamage(rd), defense(d)
+//{}
+
+Character::Character(string n, int h, int md, int rd, int d)   
+{
+
+    name = n;
+    health = h;
+    maxHealth = h;
+    meleeDamage = rd;
+    defense = d;
+
+}
+
 
 void Character::takeDamage(int dmg) 
 {

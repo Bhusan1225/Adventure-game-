@@ -10,12 +10,15 @@ int main() {
     srand(time(0));
 
     GameStory::introduction();
-    Player hero("Hero");
+    Player hero("Hero"); // hero sponned here 
     Level currentLevel = Level::LEVEL_1;
 
-    while (currentLevel != Level::LEVEL_6) {
+    while (currentLevel != Level::LEVEL_6) 
+    {
         GameStory::levelNarrative(currentLevel);
-        Enemy enemy = GameManager::spawnEnemy(currentLevel);
+        
+        Enemy enemy = GameManager::spawnEnemy(currentLevel); //enemysponner here
+        
         GameState result = GameManager::battle(hero, enemy);
         if (result == GameState::LOSE) {
             GameStory::conclusion(false);
