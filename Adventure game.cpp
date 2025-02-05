@@ -4,28 +4,30 @@
 using namespace std;
 
 #include "header/GameManager.h"
+#include "header/GameStory.h"
 
 int main() {
     srand(time(0));
+
+    GameStory::introduction();
     Player hero("Hero");
-    
     Level currentLevel = Level::LEVEL_1;
 
-    while (currentLevel != Level::LEVEL_6)
-    {
+    while (currentLevel != Level::LEVEL_6) {
+        GameStory::levelNarrative(currentLevel);
         Enemy enemy = GameManager::spawnEnemy(currentLevel);
-        
         GameState result = GameManager::battle(hero, enemy);
-        if (result == GameState::LOSE) return 0;
+        if (result == GameState::LOSE) {
+            GameStory::conclusion(false);
+            return 0;
+        }
         currentLevel = static_cast<Level>(static_cast<int>(currentLevel) + 1);
     }
 
     // Final Boss Battle
+    GameStory::levelNarrative(Level::LEVEL_6);
     Boss finalBoss;
     GameState finalResult = GameManager::battle(hero, finalBoss);
-    if (finalResult == GameState::WIN) {
-        cout << "Congratulations! You defeated Murlocs and saved your village!" << endl;
-    }
+    GameStory::conclusion(finalResult == GameState::WIN);
     return 0;
 }
-s
