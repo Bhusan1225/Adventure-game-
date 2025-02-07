@@ -3,16 +3,34 @@
 #include <ctime>
 using namespace std;
 
+#include "header/GameManager.h"
+#include "header/GameStory.h"
 
+int main() {
+    srand(time(0));
 
-// Main Function
-int main() 
-{
-   
+    GameStory::introduction();
+    Player hero("Hero");                                    // hero sponned here 
+    Level currentLevel = Level::LEVEL_1;
 
+    while (currentLevel != Level::LEVEL_6) 
+    {
+        GameStory::levelNarrative(currentLevel);
+        
+        Enemy enemy = GameManager::spawnEnemy(currentLevel); //enemy sponner here
+        
+        GameState result = GameManager::battle(hero, enemy);
+        if (result == GameState::LOSE) {
+            GameStory::conclusion(false);
+            return 0;
+        }
+        currentLevel = static_cast<Level>(static_cast<int>(currentLevel) + 1);
+    }
 
-
-
-
+    // Final Boss Battle
+    GameStory::levelNarrative(Level::LEVEL_6);
+    Boss finalBoss;                                          //boss enemy sponned here
+    GameState finalResult = GameManager::battle(hero, finalBoss);
+    GameStory::conclusion(finalResult == GameState::WIN);
     return 0;
 }

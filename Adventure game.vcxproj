@@ -128,13 +128,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Adventure game.cpp" />
+    <ClCompile Include="source\GameManager.cpp" />
+    <ClCompile Include="source\Boss.cpp" />
+    <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\Charater.cpp" />
+    <ClCompile Include="source\GameStory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\GameManager.h" />
+    <ClInclude Include="header\Boss.h" />
+    <ClInclude Include="header\Enemy.h" />
     <ClInclude Include="header\Charater.h" />
+    <ClInclude Include="header\GameState.h" />
     <ClInclude Include="header\Level.h" />
     <ClInclude Include="header\Player.h" />
+    <ClInclude Include="header\GameStory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
