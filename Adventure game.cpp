@@ -10,14 +10,14 @@ int main() {
     srand(time(0));
 
     GameStory::introduction();
-    Player hero("Hero"); // hero sponned here 
+    Player hero("Hero");                                    // hero sponned here 
     Level currentLevel = Level::LEVEL_1;
 
     while (currentLevel != Level::LEVEL_6) 
     {
         GameStory::levelNarrative(currentLevel);
         
-        Enemy enemy = GameManager::spawnEnemy(currentLevel); //enemysponner here
+        Enemy enemy = GameManager::spawnEnemy(currentLevel); //enemy sponner here
         
         GameState result = GameManager::battle(hero, enemy);
         if (result == GameState::LOSE) {
@@ -29,7 +29,7 @@ int main() {
 
     // Final Boss Battle
     GameStory::levelNarrative(Level::LEVEL_6);
-    Boss finalBoss;
+    Boss finalBoss;                                          //boss enemy sponned here
     GameState finalResult = GameManager::battle(hero, finalBoss);
     GameStory::conclusion(finalResult == GameState::WIN);
     return 0;
